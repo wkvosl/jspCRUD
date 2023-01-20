@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+
+#newWriteTable input, #newWriteTable textarea, #newWriteTable select, table > tbody{
+	border: 1px solid #868d93;
+}
+
+
+.form-select-sm{
+	width: 	fit-content;
+}
+input.form-control{
+	width: 73.7vw;
+}
+
+textarea.form-control{
+	width: 73.7vw;
+}
+
+#newWriteTable_td > input.form-control{
+	width: 300px;
+	display: inline-block;
+}
+
+.btn-primary{
+	--bs-btn-bg: #3d4144bf;
+    --bs-btn-hover-bg: #1a5e9b;
+    --bs-btn-border-color : none;
+    --bs-btn-hover-border-color : none;
+}
+
+.pagination{
+	justify-content: center;
+}
+
+.page-link{
+	background-color: white;
+    color: #0d6efd;
+}
+
+.page-link.checked{
+	background-color: #0d6efd;
+    color: white;
+}
+
+.form-select{
+	width: fit-content;
+}

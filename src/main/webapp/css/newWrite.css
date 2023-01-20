@@ -1,0 +1,69 @@
+@charset "UTF-8";
+
+#newWriteTable{
+	border: 1px solid;
+	width: 100%;
+	margin: auto;
+	
+	border-collapse: collapse;
+}
+
+#newWriteTable > tr, th, td{
+	border: 1px solid #868d93;
+}
+
+td#newWriteTable_td{
+	text-align: left !important;
+	height: 60px;
+}
+
+td#newWriteTable_td.textarea_height{
+	height: 300px;
+	vertical-align : top;
+	white-space: pre-line;
+}
+
+input, select{
+	margin: 10px 0 10px 10px;
+}
+
+textarea{
+	margin: 10px 0 10px 10px;
+    width: 63vw;
+    height: 300px;
+    resize: none;
+ }
+ 
+#newWrite_button_div{
+	text-align: end;
+} 
+
+td , th{
+	height: 40px;
+	padding-left: 10px;
+}
+
+.textArea_tag_value{
+	 height: 300px;
+}
+
+#detail_th, #newWrite_th{
+	width: 200px;
+}
+
+#modify_th{
+	min-width: 200px;
+}
+
+.filedown_but{
+	border: 0;
+    outline: 0;
+    background-color: white;
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
+
+#span{
+	color: #808080d9;
+}

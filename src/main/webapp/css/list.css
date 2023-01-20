@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+#SearchDiv{
+    background-color:lightblue;
+    height: 50px;
+    margin: 30px auto;
+    border-radius: 8px;
+}
+
+#SearchDiv_search{
+	height: 50px;
+    line-height: 50px;
+}
+
+#SearchDiv_inForm{
+	height: inherit;
+	width: inherit;
+	display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#SearchDiv_inForm > input{
+	width:12vw;
+	text-align: center;
+	height: 28px;
+	line-height: 16px;
+}
+
+.listCount_Ptag{
+	text-align: left;
+	margin: 30px 0 10px 38px;
+}
+
+#table_div{
+	height: fit-content;
+    margin: 10px auto;
+}
+
+#listTable{
+	border: 1px solid;
+	margin: auto;
+	text-align: center;
+	border-collapse: collapse;
+	min-width: 94%;
+	font-weight: 600;
+}
+
+#listTable > tr, th, td{
+	border: 1px solid;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+#listTable_Title_tr{
+	background-color: lightgray;
+}
+
+#listTable_Title_tr > #th_1{width: 73px;}
+#listTable_Title_tr > #th_2{width: 140px;}
+#listTable_Title_tr > #th_3{width: 360px;}
+#listTable_Title_tr > #th_4{width: 73px;}
+#listTable_Title_tr > #th_5{width: 181px;}
+#listTable_Title_tr > #th_6{width: 106px;}
+#listTable_Title_tr > #th_7{width: 73px;}
+
+#listTable_title_td{
+	text-align: left;
+	padding-left:10px;
+}
+
+#listToWrite_Btn_div{
+	text-align: end;
+}
+
+button{
+	margin: 10px 0 10px 10px;
+}
+
+
+
+#paging{
+	height: 50px;
+    line-height: 50px;
+}
+
+#paging_a{
+	text-decoration: none;
+}
