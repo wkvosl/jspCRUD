@@ -88,7 +88,7 @@
 				<th>첨부파일</th>
 				<td id="newWriteTable_td">
 					<input type="file" name="realfilename" accept="image/*" class="form-control" id="input_file"
-						title="💡최대용량은 2MB 입니다. ">
+						title="💡최대용량은 2MB 입니다. " onchange="return checkEXT();" > <span id="span"></span>
 						<div id="imgPreview"></div>
 				</td>
 			</tr>

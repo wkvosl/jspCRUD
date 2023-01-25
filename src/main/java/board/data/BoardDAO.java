@@ -20,9 +20,7 @@ public class BoardDAO {
 	private String sql="";
 	
 	//게시판 생성.
-	public int createBoard(String username, String title, String boardtype,
-			String boardcategory, String usertype, String content, 
-			String realfilename, String systemfilename) {
+	public int createBoard(BoardDTO dto) {
 		
 		conn = DBconnection.getConnection();
 		
@@ -32,15 +30,15 @@ public class BoardDAO {
 				+ " value (?, ?, ? ,? , ?, ?, now(), ?, ?) ";
 		
 		try {
-		pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, username);
-			pstmt.setString(2, title);
-			pstmt.setString(3, boardtype);
-			pstmt.setString(4, boardcategory);
-			pstmt.setString(5, usertype);
-			pstmt.setString(6, content);
-			pstmt.setString(7, realfilename);
-			pstmt.setString(8, systemfilename);
+			pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, dto.getUsername());
+				pstmt.setString(2, dto.getTitle());
+				pstmt.setString(3, dto.getBoardtype());
+				pstmt.setString(4, dto.getBoardcategory());
+				pstmt.setString(5, dto.getUsertype());
+				pstmt.setString(6, dto.getContent());
+				pstmt.setString(7, dto.getRealfilename());
+				pstmt.setString(8, dto.getSystemfilename());
 			pstmt.executeUpdate();
 		
 			pstmt.close();

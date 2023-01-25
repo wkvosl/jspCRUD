@@ -13,6 +13,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import board.data.BoardDAO;
+import board.data.BoardDTO;
 
 /**
  * Servlet implementation class reg
@@ -20,21 +21,11 @@ import board.data.BoardDAO;
 @WebServlet("/create")
 public class Create extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	/**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Create() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
+	
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-//			if()
 			RequestDispatcher dis = request.getRequestDispatcher("WEB-INF/boardcreate.jsp");
 			dis.forward(request, response);
 	
@@ -51,29 +42,21 @@ public class Create extends HttpServlet {
 				new MultipartRequest(request, realpath, maxSize, enctype, new DefaultFileRenamePolicy());
 		
 		String referer = request.getHeader("Referer");
+		String[] usertypeArr = multi.getParameterValues("usertype");
 		
-		String username = multi.getParameter("username");
-		String title = multi.getParameter("title");
-		String boardtype = multi.getParameter("boardtype");
-		String boardcategory = multi.getParameter("boardcategory");
-		String[] usertype = multi.getParameterValues("usertype");
-		//고객유형을 배열로 받아 한 문자열로 저장.
-		String usertypeArr = String.join(",", usertype);
-		String content = multi.getParameter("content");
-		
-		//파일 다루기
-		String realfilename = multi.getOriginalFileName("realfilename"); //받은 파일명
-		String systemfilename = multi.getFilesystemName("realfilename"); //서버에 저장될 파일명
-		
-		
-		//확장자.
-//		String[] extArr = realfilename.split("\\.");
-//		for(int i=0; i < extArr.length; i++) {
-//			String ext = extArr[extArr.length-1];
-//		}
+		BoardDTO createBoardArgument = new BoardDTO();
+			createBoardArgument.setUsername(multi.getParameter("username"));
+			createBoardArgument.setTitle(multi.getParameter("title"));
+			createBoardArgument.setBoardtype(multi.getParameter("boardtype"));
+			createBoardArgument.setBoardcategory(multi.getParameter("boardcategory"));
+			createBoardArgument.setUsertype(String.join(",", usertypeArr));
+			createBoardArgument.setContent(multi.getParameter("content"));
+			createBoardArgument.setRealfilename(multi.getOriginalFileName("realfilename"));
+			createBoardArgument.setSystemfilename(multi.getFilesystemName("realfilename"));
+			
 
 			BoardDAO dao = new BoardDAO();
-			if(dao.createBoard(username, title, boardtype, boardcategory, usertypeArr, content, realfilename, systemfilename) == 1) {
+			if(dao.createBoard(createBoardArgument) == 1) {
 				response.sendRedirect("list");
 				return;
 			}else {
