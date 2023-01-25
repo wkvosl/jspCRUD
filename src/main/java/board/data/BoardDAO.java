@@ -19,56 +19,6 @@ public class BoardDAO {
 	
 	private String sql="";
 	
-	//모두 데리고 오기.
-	public List<BoardDTO> getBoardList(int min, int max) {
-
-		conn = DBconnection.getConnection();
-
-		sql ="select bbb.* from (select bb.*, @rownum:=@rownum+1 rownum from ( "
-				+ "				 select b.* from board_tbl b, (select @rownum:=0)r order by bid desc ) bb "
-				+ "				 order by writedate desc) bbb "
-				+ "              limit ?, ? ";
-		
-		
-		
-		List<BoardDTO> boardlist = new ArrayList<>();
-		BoardDTO dto = null;
-		
-		try {
-			
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, min);
-			pstmt.setInt(2, max);
-			pstmt.executeQuery();
-			rs = pstmt.executeQuery();
-			
-				while(rs.next()) {
-					dto = new BoardDTO();
-						dto.setRownum(rs.getInt("rownum"));
-						dto.setBid(rs.getInt("bid"));
-						dto.setUsername(rs.getString("username"));
-						dto.setTitle(rs.getString("title"));
-						dto.setBoardtype(rs.getString("boardtype"));
-						dto.setBoardcategory(rs.getString("boardcategory"));
-						dto.setUsertype(rs.getString("usertype"));
-						dto.setContent(rs.getString("content"));
-						dto.setWritedate(rs.getString("writedate"));
-						dto.setRealfilename("realfilename");
-						dto.setHit(rs.getString("hit"));
-						dto.setSystemfilename(rs.getString("systemfilename"));
-					boardlist.add(dto);
-
-				}
-			rs.close();
-			pstmt.close();
-			conn.close();
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		return boardlist;
-	}
-	
 	//게시판 생성.
 	public int createBoard(String username, String title, String boardtype,
 			String boardcategory, String usertype, String content, 

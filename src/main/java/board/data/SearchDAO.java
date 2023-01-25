@@ -20,7 +20,9 @@ public class SearchDAO {
 	
 	String sql="";
 	
-	//검색, 타이틀. 
+
+
+	//모두 데리고 오기. 
 	public List<BoardDTO> getSearchList(
 			String search_title, String search_username,
 			String searchFirstDate, String searchLastDate,
@@ -100,6 +102,7 @@ public class SearchDAO {
 		
 		return searchlist;
 	}
+	
 	
 	//검색 칼럼의 수
 			public int getSearchCount(String search_title, String search_username,
