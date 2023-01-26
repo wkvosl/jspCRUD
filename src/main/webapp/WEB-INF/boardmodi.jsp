@@ -107,8 +107,8 @@
 		</c:forEach>
 		
 			<div id="newWrite_button_div">
-				<input id="btn_size" type="submit" value="저장" onclick="checkinput();" class="btn btn btn-primary" >
-				<input id="btn_size" type="button" value="취소" onclick="location.replace('list')" class="btn btn btn-primary" >
+				<input type="submit" value="저장" onclick="checkinput();" class="btn btn btn-primary" >
+				<input type="button" value="취소" onclick="location.replace('list')" class="btn btn btn-primary" >
 			</div>
 		</form>
 	</div>

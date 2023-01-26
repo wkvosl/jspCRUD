@@ -31,12 +31,6 @@
 }
 
 
-window.onload = function(){
-	
-
-		
-}
-
 
 function checkEXT(){
 			
@@ -58,7 +52,6 @@ function checkEXT(){
 						return true;			
 					}
 				}
-			
 }
 
 
@@ -96,4 +89,22 @@ function checkSIZE(){
 				input_file.focus();			
 			});
 		}
+}
+
+
+//페이지 상세보기 삭제input태그
+function clickDelBtn(){
+	const ans = confirm('정말 삭제하시겠습니까?');
+	
+	if(ans)
+		location.href="/board/delete.do?list="+getParameterByName("list");
+	
+}
+
+//location.search/get값 가져오기, 구글펌
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }

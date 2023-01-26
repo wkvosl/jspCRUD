@@ -20,11 +20,10 @@ public class Filedel extends HttpServlet {
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		
 		String realpath = request.getSession().getServletContext().getRealPath("/img/uploads/");
 		int maxSize = 1024*1024*5;
 		String enctype = "UTF-8";
@@ -36,20 +35,16 @@ public class Filedel extends HttpServlet {
 		int bid = Integer.parseInt(id);
 		String systemfilename = multi.getParameter("systemfilename");
 		
-		String msg = "";
-		
 		File file = new File(realpath+systemfilename);
 		BoardDAO dao = new BoardDAO();
+		
 		if(dao.modiFileDel_but(bid)) {
-				file.delete();
-				msg = "업로드파일이 삭제 되었습니다.";
-		}else {
-				msg = "문제가 생겨 업로드파일이 삭제 되지 않았습니다.";
+			file.delete();
 		}
 		
-		request.setAttribute("msg", msg);
 		response.sendRedirect("modi.do?list="+bid);
-
+		
 	}
+		
 
 }

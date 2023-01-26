@@ -95,8 +95,8 @@
 		</table>
 		
 			<div id="newWrite_button_div">
-				<input id="btn_size" type="submit" value="저장" onclick="return checkinput()">
-				<input id="btn_size" type="button" value="취소" onclick="location.replace('list')">
+				<input type="submit" value="저장" onclick="return checkinput()" class="btn btn btn-primary">
+				<input type="button" value="취소" onclick="location.replace('list')" class="btn btn btn-primary">
 			</div>
 		</form>
 	</div>

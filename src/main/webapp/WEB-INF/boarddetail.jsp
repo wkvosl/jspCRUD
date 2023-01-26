@@ -23,7 +23,7 @@
 		<c:forEach items="${detail}" var ="detail">
 
 <form action="filedown" method="post" id="filedownForm">
-	<input type="hidden" name="list" value="${detail.bid }">
+	<input type="hidden" name="list" value="${detail.bid }" >
 	<input type="hidden" name="realfilename" value="${detail.realfilename}">
 	<input type="hidden" name="systemfilename" value="${detail.systemfilename }">
 </form>
@@ -84,9 +84,9 @@
 		
 		
 			<div id="newWrite_button_div">
-				<input id="btn_size" type="button" value="수정" onclick="location.href='modi.do?list=${detail.bid}'" class="btn btn btn-primary">
-				<input id="btn_size" type="button" value="삭제" onclick="confirm('정말 삭제하시겠습니까?');" class="btn btn btn-primary">
-				<input id="btn_size" type="button" value="목록" onclick="location.replace('list')" class="btn btn btn-primary">
+				<input type="button" value="수정" onclick="location.href='modi.do?list=${detail.bid}'" class="btn btn btn-primary">
+				<input type="button" value="삭제" onclick="clickDelBtn()" id="delbtn" class="btn btn btn-primary">
+				<input type="button" value="목록" onclick="location.replace('list')" class="btn btn btn-primary">
 			</div>
 	</c:forEach>
 	</div>

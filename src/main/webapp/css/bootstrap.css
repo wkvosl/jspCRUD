@@ -46,3 +46,7 @@ textarea.form-control{
 .form-select{
 	width: fit-content;
 }
+
+.btn{
+	width: 100px;
+}

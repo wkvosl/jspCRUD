@@ -60,36 +60,28 @@ public class Modi extends HttpServlet {
 		String realfilename = multi.getOriginalFileName("realfilename"); //받은 파일명
 		String systemfilename = multi.getFilesystemName("realfilename"); //서버에 저장될 파일명
 		
-		//폼에서 부터 가져온, 전의 업로드 파일명
+		//폼에서 부터 가져온, 이전 업로드 파일명
 		String systemfilename_copy = multi.getParameter("systemfilename_copy");
 		
 		//고객유형을 배열로 받아 한 문자열로 저장.
 		String usertypeArr = String.join(",", usertype);
 		
-		String msg="";
+		
 		String referer = request.getHeader("Referer");
 
 		BoardDAO dao = new BoardDAO(); 
 		if(realfilename == null) {
 			if(dao.modiBoardNullFile(bid, boardtype, boardcategory, usertypeArr, title, content)==1) {
-				msg = "글 등록 완료";  //현재 js로 대체함.
-				request.setAttribute("msg", msg);
 				response.sendRedirect("detail?list="+bid);
 				return;
 			}else {
-				msg = "글 등록 실패";
-				request.setAttribute("msg", msg); 
 				response.sendRedirect(referer);	
 			}
 		}else{
 			if(dao.modiBoard(bid, boardtype, boardcategory, usertypeArr, title, content, realfilename, systemfilename, realpath, systemfilename_copy)==1) {
-				msg = "글 등록 완료";  //현재 js로 대체함.
-				request.setAttribute("msg", msg);
 				response.sendRedirect("detail?list="+bid);
 				return;
 			}else {
-				msg = "글 등록 실패";
-				request.setAttribute("msg", msg);
 				response.sendRedirect(referer);
 			}
 		}

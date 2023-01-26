@@ -67,7 +67,7 @@
 		</div>
 <!-- 등록버튼 -->
 		<div id="listToWrite_Btn_div">
-			<button id="btn_size" onclick="location.href='create'" class="btn btn-primary">등록</button>
+			<button onclick="location.href='create'" class="btn btn-primary">등록</button>
 		</div>
 		
 <!-- 페이지 -->
